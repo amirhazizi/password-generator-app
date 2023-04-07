@@ -14,7 +14,7 @@ export default {
       colors: {
         // ### Primary
         clMintGreen: "hsl(127, 100%, 82%)",
-        clWhite: "hsl(0, 0, 100%)",
+        clWhite: "hsl(0, 0%, 100%)",
         // ### Neutral
         clCinder: "	hsl(252, 22%, 5%)",
         clBalticSea: "hsl(248, 10%, 15%)",
