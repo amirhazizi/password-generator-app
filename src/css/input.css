@@ -43,21 +43,18 @@ main>div {
     border-radius: 50%;
     background: white;
     cursor: pointer;
-    box-shadow: 0 0 2px 0 #555;
+    box-shadow: 0 0 1rem 0 #888787;
 }
 
 .slider::-webkit-slider-thumb:active {
-    background-blend-mode: overlay;
-    background-color: rgb(3, 150, 150);
+    background: rgb(214, 233, 231);
 }
 
-/* The checkbox-container */
 .checkbox-container {
     position: relative;
     cursor: pointer;
 }
 
-/* Hide the browser's default checkbox */
 .checkbox-container input {
     opacity: 0;
     cursor: pointer;
@@ -65,7 +62,6 @@ main>div {
     width: 0;
 }
 
-/* Create a custom checkbox */
 .checkmark {
     height: 1.3rem;
     width: 1.3rem;
@@ -73,24 +69,20 @@ main>div {
     position: relative;
 }
 
-/* When the checkbox is checked, add a blue background */
 .checkbox-container input:checked~.checkmark {
     background-color: var(--cl-Mint-Green);
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
     content: "";
     position: absolute;
     display: none;
 }
 
-/* Show the checkmark when checked */
 .checkbox-container input:checked~.checkmark:after {
     display: block;
 }
 
-/* Style the checkmark/indicator */
 .checkbox-container .checkmark:after {
     left: 7px;
     top: 3px;
