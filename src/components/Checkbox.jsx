@@ -1,5 +1,8 @@
+import { useContext } from "react"
 import { AiFillCheckSquare } from "react-icons/ai"
+import { AppContext } from "../App"
 const Checkbox = ({ label, setCheck, template }) => {
+  const { strengthHandler, strength } = useContext(AppContext)
   return (
     <label className='checkbox-container flex items-center '>
       <input
@@ -7,8 +10,10 @@ const Checkbox = ({ label, setCheck, template }) => {
         onChange={() => {
           setCheck(({ value }) => {
             if (value) {
+              strengthHandler(strength.level - 1)
               return { value: !value, text: "" }
             }
+            strengthHandler(strength.level + 1)
             return { value: !value, text: template }
           })
         }}
