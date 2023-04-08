@@ -22,7 +22,7 @@ body {
 
 /* actual css */
 main>div {
-    width: min(90vw, 500px);
+    width: min(90vw, 450px);
 }
 
 /* slider */
@@ -100,7 +100,7 @@ main>div {
 }
 
 .notification {
-    transition: all 250ms ease-in-out;
+    transition: all 220ms ease-in-out;
 }
 
 .submit-btn:hover>svg {

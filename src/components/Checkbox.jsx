@@ -1,5 +1,4 @@
 import { useContext } from "react"
-import { AiFillCheckSquare } from "react-icons/ai"
 import { AppContext } from "../App"
 const Checkbox = ({ label, setCheck, template }) => {
   const { strengthHandler, strength } = useContext(AppContext)

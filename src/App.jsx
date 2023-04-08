@@ -1,6 +1,5 @@
 import { FaRegCopy } from "react-icons/fa"
-import { BsArrowRightShort } from "react-icons/bs"
-import React, { useState, useContext, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import Checkbox from "./components/Checkbox"
 const lowerCase = "abcdefghijklmnopqrstuvwxyz"
 const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -89,7 +88,7 @@ function App() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShowNotification(false)
-    }, 1200)
+    }, 1600)
     return () => clearTimeout(timeout)
   }, [isNotification])
   const { type: notificationType, text: notificationText } = isNotification
@@ -106,7 +105,7 @@ function App() {
         <div className='space-y-4 mx-auto my-20'>
           <h1 className=' opacity-50 text-center'>Password Generator</h1>
           <div className='flex justify-between bg-clBalticSea p-4 md:px-6'>
-            <h2 className={`text-xl font-medium ${password || "opacity-40"}`}>
+            <h2 className={`text-2xl font-medium ${password || "opacity-40"}`}>
               {password || "P4$5W0rD!"}
             </h2>
             <button onClick={() => addToClipboard()}>
