@@ -105,7 +105,7 @@ function App() {
       <main className='min-h-screen grid place-items-center bg-clCinder text-clWhite'>
         <div className='space-y-4 mx-auto my-20'>
           <h1 className=' opacity-50 text-center'>Password Generator</h1>
-          <div className='flex justify-between bg-clBalticSea p-4'>
+          <div className='flex justify-between bg-clBalticSea p-4 md:px-6'>
             <h2 className={`text-xl font-medium ${password || "opacity-40"}`}>
               {password || "P4$5W0rD!"}
             </h2>
@@ -115,9 +115,9 @@ function App() {
           </div>
           <form
             onSubmit={submitHandler}
-            className='bg-clBalticSea p-4 space-y-8'
+            className='bg-clBalticSea p-4 space-y-8 md:p-6 '
           >
-            <div className='space-y-4'>
+            <div className='space-y-5'>
               <div className='flex justify-between items-center'>
                 <p className=''>Character Length</p>
                 <p className='text-clMintGreen text-2xl'>{value}</p>

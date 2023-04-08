@@ -44,10 +44,13 @@ main>div {
     background: white;
     cursor: pointer;
     box-shadow: 0 0 1rem 0 #888787;
+    border: 2px solid transparent;
 }
 
 .slider::-webkit-slider-thumb:active {
-    background: rgb(214, 233, 231);
+    background: var(--cl-Cinder);
+    border-color: var(--cl-Mint-Green);
+
 }
 
 .checkbox-container {

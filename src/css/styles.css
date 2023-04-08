@@ -641,6 +641,12 @@ video {
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
 }
 
+.space-y-5 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
+}
+
 .rounded-lg {
   border-radius: 0.5rem;
 }
@@ -835,10 +841,12 @@ main>div {
   background: white;
   cursor: pointer;
   box-shadow: 0 0 1rem 0 #888787;
+  border: 2px solid transparent;
 }
 
 .slider::-webkit-slider-thumb:active {
-  background: rgb(214, 233, 231);
+  background: var(--cl-Cinder);
+  border-color: var(--cl-Mint-Green);
 }
 
 .checkbox-container {
@@ -910,4 +918,15 @@ main>div {
 .hover\:text-clMintGreen:hover {
   --tw-text-opacity: 1;
   color: hsl(127 100% 82% / var(--tw-text-opacity));
+}
+
+@media (min-width: 768px) {
+  .md\:p-6 {
+    padding: 1.5rem;
+  }
+
+  .md\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
