@@ -64,7 +64,7 @@ function App() {
               {password || "P4$5W0rD!"}
             </h2>
             <button>
-              <FaRegCopy className='fill-clMintGreen scale-125'></FaRegCopy>
+              <FaRegCopy className='fill-clMintGreen transition-colors scale-125 hover:fill-clWhite'></FaRegCopy>
             </button>
           </div>
           <form
@@ -142,10 +142,21 @@ function App() {
             </div>
             <button
               type='submit'
-              className='uppercase text-clBalticSea bg-clMintGreen w-full py-3 flex items-center justify-center gap-x-2 font-bold'
+              className='submit-btn uppercase text-clBalticSea bg-clMintGreen w-full py-3 flex items-center justify-center gap-x-2 font-medium transition-colors border-2 border-transparent hover:border-clMintGreen hover:bg-clBalticSea hover:text-clMintGreen'
             >
               Generate
-              <BsArrowRightShort className='fill-clBalticSea scale-150'></BsArrowRightShort>
+              <svg
+                className='scale-150 transition-colors'
+                xmlns='http://www.w3.org/2000/svg'
+                width='16'
+                height='16'
+                viewBox='0 0 16 16'
+              >
+                <path
+                  fillRule='evenodd'
+                  d='M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z'
+                />
+              </svg>
             </button>
           </form>
         </div>

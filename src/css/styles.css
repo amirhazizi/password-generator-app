@@ -615,6 +615,10 @@ video {
   border-color: hsl(0 0% 100% / var(--tw-border-opacity));
 }
 
+.border-transparent {
+  border-color: transparent;
+}
+
 .bg-clBalticSea {
   --tw-bg-opacity: 1;
   background-color: hsl(248 10% 15% / var(--tw-bg-opacity));
@@ -635,23 +639,9 @@ video {
   background-color: hsl(127 100% 82% / var(--tw-bg-opacity));
 }
 
-.bg-orange-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 115 22 / var(--tw-bg-opacity));
-}
-
-.bg-orange-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(253 186 116 / var(--tw-bg-opacity));
-}
-
 .bg-orange-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(251 146 60 / var(--tw-bg-opacity));
-}
-
-.fill-clBalticSea {
-  fill: hsl(248, 10%, 15%);
 }
 
 .fill-clMintGreen {
@@ -731,6 +721,12 @@ video {
   opacity: 0.5;
 }
 
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 /* custom variables */
 
 :root {
@@ -798,12 +794,13 @@ main>div {
 .checkmark {
   height: 1.3rem;
   width: 1.3rem;
-  background-color: white;
+  border: 2px solid white;
   position: relative;
 }
 
 .checkbox-container input:checked~.checkmark {
-  background-color: var(--cl-Mint-Green);
+  border-color: transparent;
+  background: var(--cl-Mint-Green);
 }
 
 .checkmark:after {
@@ -817,11 +814,34 @@ main>div {
 }
 
 .checkbox-container .checkmark:after {
-  left: 7px;
-  top: 3px;
-  width: .45rem;
-  height: .8rem;
+  left: 6px;
+  top: 2px;
+  width: .4rem;
+  height: .75rem;
   border: solid var(--cl-Cinder);
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
+}
+
+.submit-btn:hover>svg {
+  fill: var(--cl-Mint-Green);
+}
+
+.hover\:border-clMintGreen:hover {
+  --tw-border-opacity: 1;
+  border-color: hsl(127 100% 82% / var(--tw-border-opacity));
+}
+
+.hover\:bg-clBalticSea:hover {
+  --tw-bg-opacity: 1;
+  background-color: hsl(248 10% 15% / var(--tw-bg-opacity));
+}
+
+.hover\:fill-clWhite:hover {
+  fill: hsl(0, 0%, 100%);
+}
+
+.hover\:text-clMintGreen:hover {
+  --tw-text-opacity: 1;
+  color: hsl(127 100% 82% / var(--tw-text-opacity));
 }

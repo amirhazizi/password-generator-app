@@ -65,12 +65,13 @@ main>div {
 .checkmark {
     height: 1.3rem;
     width: 1.3rem;
-    background-color: white;
+    border: 2px solid white;
     position: relative;
 }
 
 .checkbox-container input:checked~.checkmark {
-    background-color: var(--cl-Mint-Green);
+    border-color: transparent;
+    background: var(--cl-Mint-Green);
 }
 
 .checkmark:after {
@@ -84,13 +85,17 @@ main>div {
 }
 
 .checkbox-container .checkmark:after {
-    left: 7px;
-    top: 3px;
-    width: .45rem;
-    height: .8rem;
+    left: 6px;
+    top: 2px;
+    width: .4rem;
+    height: .75rem;
     border: solid var(--cl-Cinder);
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+
+.submit-btn:hover>svg {
+    fill: var(--cl-Mint-Green);
 }
