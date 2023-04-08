@@ -1,6 +1,6 @@
 import { FaRegCopy } from "react-icons/fa"
 import { BsArrowRightShort } from "react-icons/bs"
-import React, { useState, useContext } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import Checkbox from "./components/Checkbox"
 const lowerCase = "abcdefghijklmnopqrstuvwxyz"
 const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -15,6 +15,11 @@ function App() {
   const [isSymbol, setIsSymbol] = useState({ value: false, text: "" })
   const [password, setPassword] = useState("")
   const [strength, setStrength] = useState({ type: "", level: 0 })
+  const [isNotification, setIsNotification] = useState({
+    type: "",
+    text: "",
+  })
+  const [showNotification, setShowNotification] = useState(false)
 
   const getBackgroundSize = () => {
     return {
@@ -34,14 +39,25 @@ function App() {
   }
   const submitHandler = (e) => {
     e.preventDefault()
+    if (value === 0) {
+      setIsNotification({
+        type: "bg-red-500",
+        text: "please set character length",
+      })
+      setShowNotification(true)
+      return
+    }
     if (
-      value === 0 ||
-      (!isLowerCase.value &&
-        !isUpperCase.value &&
-        !isNumber.value &&
-        !isSymbol.value)
+      !isLowerCase.value &&
+      !isUpperCase.value &&
+      !isNumber.value &&
+      !isSymbol.value
     ) {
-      console.log("ok")
+      setIsNotification({
+        type: "bg-red-500",
+        text: "choice one less pattern",
+      })
+      setShowNotification(true)
       return
     }
     const total = `${isLowerCase.text}${isUpperCase.text}${isNumber.text}${isSymbol.text}`
@@ -53,9 +69,39 @@ function App() {
       i += 1
     }
     setPassword(newPassword)
+    setIsNotification({
+      type: "bg-green-400",
+      text: "Password Generated",
+    })
+    setShowNotification(true)
   }
+  const addToClipboard = () => {
+    if (password) {
+      navigator.clipboard.writeText(password)
+
+      setIsNotification({
+        type: "bg-green-400",
+        text: "Password added to clipboard",
+      })
+      setShowNotification(true)
+    }
+  }
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowNotification(false)
+    }, 1200)
+    return () => clearTimeout(timeout)
+  }, [isNotification])
+  const { type: notificationType, text: notificationText } = isNotification
   return (
     <AppContext.Provider value={{ strengthHandler, strength }}>
+      <div
+        className={`notification fixed text-center p-3 top-2 left-1/2 z-10  px-4 text-clWhite -translate-x-1/2 rounded-lg capitalize ${notificationType} ${
+          showNotification ? "translate-y-0 " : "-translate-y-8 invisible"
+        }`}
+      >
+        {notificationText}
+      </div>
       <main className='min-h-screen grid place-items-center bg-clCinder text-clWhite'>
         <div className='space-y-4 mx-auto my-20'>
           <h1 className=' opacity-50 text-center'>Password Generator</h1>
@@ -63,7 +109,7 @@ function App() {
             <h2 className={`text-xl font-medium ${password || "opacity-40"}`}>
               {password || "P4$5W0rD!"}
             </h2>
-            <button>
+            <button onClick={() => addToClipboard()}>
               <FaRegCopy className='fill-clMintGreen transition-colors scale-125 hover:fill-clWhite'></FaRegCopy>
             </button>
           </div>

@@ -96,6 +96,10 @@ main>div {
     transform: rotate(45deg);
 }
 
+.notification {
+    transition: all 250ms ease-in-out;
+}
+
 .submit-btn:hover>svg {
     fill: var(--cl-Mint-Green);
 }
